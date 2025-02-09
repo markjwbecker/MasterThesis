@@ -57,16 +57,16 @@ model {
 data <- list(z=z,m=ncol(z),T=nrow(z))
 
 n_chains <- 2
-iter <- 10000
-warmup <- 2000
+iter <- 5000
+warmup <- 1500
 fit <- stan(model_code=stan_code,data=data,chains=n_chains,iter=iter,warmup=warmup, verbose = TRUE)
 
 
 
 
-Phi_est <- matrix(get_posterior_mean(fit)[1:4,3],2,2,byrow=TRUE)
-Theta_est <- matrix(get_posterior_mean(fit)[5:8,3],2,2,byrow=TRUE)
-Sigma_est <- matrix(get_posterior_mean(fit)[9:12,3],2,2,byrow=TRUE)
+Phi1_est <- matrix(get_posterior_mean(fit)[1:4,3],2,2,byrow=TRUE)
+Theta1_est <- matrix(get_posterior_mean(fit)[5:8,3],2,2,byrow=TRUE)
+Sigma1_est <- matrix(get_posterior_mean(fit)[9:12,3],2,2,byrow=TRUE)
 
 
 Phi1
